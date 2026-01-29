@@ -11,6 +11,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.2.5
         version: 7.2.5(astro@5.16.15(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.56.0)(typescript@5.9.3))(jiti@2.6.1)(lightningcss@1.30.2)(svelte@5.48.3)(typescript@5.9.3)
+      '@catppuccin/tailwindcss':
+        specifier: ^1.0.0
+        version: 1.0.0
       '@tailwindcss/vite':
         specifier: ^4.1.18
         version: 4.1.18(vite@6.4.1(jiti@2.6.1)(lightningcss@1.30.2))
@@ -27,20 +30,17 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18
     devDependencies:
-      '@catppuccin/tailwindcss':
-        specifier: ^1.0.0
-        version: 1.0.0
       prettier:
-        specifier: 3.8.1
+        specifier: ^3.8.1
         version: 3.8.1
       prettier-plugin-astro:
-        specifier: 0.14.1
+        specifier: ^0.14.1
         version: 0.14.1
       prettier-plugin-svelte:
         specifier: ^3.4.1
         version: 3.4.1(prettier@3.8.1)(svelte@5.48.3)
       prettier-plugin-tailwindcss:
-        specifier: 0.7.2
+        specifier: ^0.7.2
         version: 0.7.2(prettier-plugin-astro@0.14.1)(prettier-plugin-svelte@3.4.1(prettier@3.8.1)(svelte@5.48.3))(prettier@3.8.1)
 
 packages:

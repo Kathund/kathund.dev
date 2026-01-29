@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@astrojs/svelte": "^7.2.5",
+    "@catppuccin/tailwindcss": "^1.0.0",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.15",
     "svelte": "^5.46.1",
@@ -28,10 +29,9 @@
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@catppuccin/tailwindcss": "^1.0.0",
-    "prettier": "3.8.1",
-    "prettier-plugin-astro": "0.14.1",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-svelte": "^3.4.1",
-    "prettier-plugin-tailwindcss": "0.7.2"
+    "prettier-plugin-tailwindcss": "^0.7.2"
   }
 }
