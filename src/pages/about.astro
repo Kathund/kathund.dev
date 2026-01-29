@@ -1,0 +1,101 @@
+---
+import Header from '../components/Header.svelte';
+import Separator from '../components/Separator.svelte';
+import Footer from '../components/Footer.svelte';
+import Person, { type PersonProps } from '../components/Person.svelte';
+import '../styles/global.css';
+
+export const coolPeople: PersonProps[] = [
+  { name: 'aidn5', github: 'aidn3' },
+  { name: 'Bloxigus' },
+  { name: 'DuckySoLucky', site: 'https://duckysolucky.is-a.dev' },
+  { name: 'Empa', github: 'ItsEmpa', note: 'emma' },
+  { name: 'Juna', github: 'j10a1n15', note: 'Tuba' },
+  { name: 'MadelynWith5Ns', github: 'madelynwith5ns', site: 'https://mw5ns.com' },
+  { name: 'Mat', github: 'mat-1', site: 'https://matdoes.dev' },
+  { name: 'Meowora', site: 'https://mona.cat' },
+  { name: 'Polsulpicien' },
+  { name: 'RagingEnby', site: 'https://ragingenby.dev' },
+  { name: 'saadndm' },
+  { name: 'SoopyBoo32', site: 'https://soopy.dev', note: 'SoopyV3' },
+  { name: 'ThatGravyBoat', site: 'https://thatgravyboat.tech' },
+  { name: 'Zickles' }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+
+  <body class="latte bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
+    <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
+      <Header client:only />
+
+      <div class="flex flex-col gap-3">
+        <div>
+          <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
+          <p>I primarily uses <a href="https://github.com/kathund/nix-config">NixOS</a> and NeoVim (uwu)</p>
+          <p>I'm <a target="_blank" href="https://time.is/UTC+8">UTC+8</a> so expect responses between 10am - 2am!</p>
+          <p>
+            If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very distracted!
+          </p>
+        </div>
+
+        <div>
+          <p class="text-xl">Languages:</p>
+          <p>- TypeScript/JavaScript</p>
+          <p>- Rust</p>
+          <p>- Java/Kotlin</p>
+        </div>
+
+        <div>
+          <p class="text-xl">Random things I know how to use:</p>
+          <p><a target="_blank" href="https://astro.build/">- Astro</a></p>
+          <p><a target="_blank" href="https://bun.sh">- Bun</a></p>
+          <p><a target="_blank" href="https://cloudflare.com">- Cloudflare</a></p>
+          <p><a target="_blank" href="https://discord.js.org">- Discord.js</a></p>
+          <p><a target="_blank" href="https://ejs.co/">- EJS</a></p>
+          <p><a target="_blank" href="https://nodejs.org/en">- Node.js</a></p>
+          <p><a target="_blank" href="https://react.dev/">- React</a></p>
+          <p><a target="_blank" href="https://sass-lang.com/">- SASS</a></p>
+          <p><a target="_blank" href="https://svelte.dev/">- Svelte</a></p>
+          <p><a target="_blank" href="https://tailwindcss.com/">- TailwindCSS</a></p>
+        </div>
+
+        <div>
+          <p class="text-xl">Links:</p>
+          <p><a target="_blank" href="https://discord.com/users/1276524855445164098">- Discord</a></p>
+          <p><a target="_blank" href="https://github.com/Kathund">- GitHub</a></p>
+        </div>
+      </div>
+
+      <Footer client:only />
+      <Separator />
+
+      <div class="gap flex flex-col">
+        <div>
+          <p>Cool people! Please check them out</p>
+          <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
+        </div>
+        {
+          coolPeople
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((person) => (
+              <Person
+                key={person.name}
+                name={person.name}
+                github={person.github}
+                site={person.site}
+                note={person.note}
+              />
+            ))
+        }
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+---
+import Header from '../../components/Header.svelte';
+import Footer from '../../components/Footer.svelte';
+import Project, { type ProjectProps } from '../../components/Project.svelte';
+import '../../styles/global.css';
+
+export const projects: ProjectProps[] = [
+  {
+    title: 'Hypixel API Reborn',
+    lines: [
+      'Hypixel-API-Reborn the <span class="text-ctp-red-600 text-bold">ULTIMATE</span> and <span class="text-ctp-red-600 text-bold">EASIEST</span> way to interact with the Hypixel API while having complete type saftey!'
+    ],
+    links: [
+      { tag: 'GitHub', href: 'https://github.com/Hypixel-API-Reborn/Hypixel-API-Reborn/' },
+      { tag: 'npm', href: 'https://www.npmjs.com/package/hypixel-api-reborn' },
+      { tag: 'Docs', href: 'https://hypixel-api-reborn.github.io/hypixel-api-reborn/' },
+      { tag: 'Discord', href: 'https://discord.gg/NSEBNMM' }
+    ],
+    built: [{ tag: 'TypeScript' }, { tag: 'npm' }, { tag: 'NodeJS' }],
+    involvement: 'Maintainer'
+  },
+  {
+    title: 'OneClient',
+    lines: [
+      'The anti-client for minecraft!',
+      'Designed to be easy to use and built from the ground up to be fully open!'
+    ],
+    links: [
+      { tag: 'GitHub', href: 'https://github.com/Polyfrost/OneLauncher' },
+      { tag: 'Website', href: 'https://polyfrost.org/projects/oneclient' }
+    ],
+    built: [
+      { tag: 'Tuari' },
+      { tag: 'Rust' },
+      { tag: 'TypeScript' },
+      { tag: 'React' },
+      { tag: 'TailwindCSS' },
+      { tag: 'TanStack' }
+    ],
+    involvement: 'Maintainer'
+  },
+  {
+    title: 'Spotify Manager',
+    lines: ['Let anyone control your Spotify from a easy to use discord bot...', 'What could go wrong!'],
+    links: [
+      { tag: 'GitHub', href: 'https://github.com/Kathund/Spotify-Manager' },
+      { tag: 'Invite', href: 'https://discord.com/oauth2/authorize?client_id=1282608162591211583' }
+    ],
+    built: [{ tag: 'Bun' }, { tag: 'TypeScript' }],
+    involvement: 'Developer'
+  },
+  {
+    title: 'kath.lol (this site)',
+    lines: ['Semi full list of Projects I have worked on'],
+    links: [
+      { tag: 'GitHub', href: 'https://github.com/Kathund/kath.lol' },
+      { tag: 'Website', href: 'https://kath.lol/' }
+    ],
+    built: [{ tag: 'TypeScript' }, { tag: 'Svelte' }, { tag: 'TailwindCSS' }, { tag: 'Astro' }],
+    involvement: 'Developer'
+  },
+  {
+    title: 'Hypixel Discord Chat Bridge',
+    lines: [
+      'A two-way chat bridge between Hypixel guild chat and a Discord channel',
+      'The application utilizes discord.js v14 for communicating with Discord, and Mineflayer for communicating with Hypixel'
+    ],
+    links: [{ tag: 'GitHub', href: 'https://github.com/DuckySoLucky/hypixel-discord-chat-bridge' }],
+    built: [{ tag: 'JavaScript' }, { tag: 'Mineflayer' }, { tag: 'Discord.js' }],
+    involvement: 'Contributor'
+  },
+  {
+    title: 'Firmament',
+    lines: ['Hypixel SkyBlock mod for 1.21.x'],
+    links: [{ tag: 'GitHub', href: 'https://github.com/DuckySoLucky/hypixel-discord-chat-bridge' }],
+    built: [{ tag: 'Kotlin' }, { tag: 'Minecraft' }],
+    involvement: 'Contributor'
+  }
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+  </head>
+
+  <body class="latte bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
+    <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
+      <Header client:only />
+
+      <div class="grid grid-cols-2 grid-rows-2 gap-2">
+        {
+          projects.map((project) => (
+            <Project
+              title={project.title}
+              lines={project.lines}
+              links={project.links}
+              built={project.built}
+              involvement={project.involvement}
+              path={project.path}
+              client:only
+            />
+          ))
+        }
+      </div>
+
+      <Footer client:only />
+    </main>
+  </body>
+</html>
