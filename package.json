@@ -2,6 +2,15 @@
   "name": "kath.lol",
   "type": "module",
   "version": "2.0.0",
+  "packageManager": "pnpm@10.28.0",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.16.0",
+    "pnpm": ">=9.9.0",
+    "npm": "forbidden, use pnpm instead",
+    "yarn": "forbidden, use pnpm instead",
+    "bun": "forbidden, use pnpm instead"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
