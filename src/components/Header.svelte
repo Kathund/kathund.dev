@@ -18,7 +18,7 @@
       <span class="text-ctp-mauve text-sm">also known as Jacob!</span>
     </div>
     <div class="text-right flex gap-2">
-      {#each pages as page}
+      {#each pages as page (page.path)}
         <a
           href={page.path}
           class={twMerge('hover:underline', currentPath === page.path ? 'text-ctp-pink underline' : '')}>{page.name}</a>

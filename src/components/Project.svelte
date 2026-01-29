@@ -12,7 +12,7 @@
     path?: string;
   }
 
-  let { title, lines, built, links, involvement, path }: ProjectProps = $props();
+  const { title, lines, built, links, involvement, path }: ProjectProps = $props();
 </script>
 
 <div class="outline-ctp-pink bg-ctp-surface2/20 p-4 rounded-xl flex flex-col justify-between">
@@ -29,7 +29,7 @@
       {/if}
     </div>
     <div>
-      {#each lines as line}
+      {#each lines as line (line)}
         <p>{@html line}</p>
       {/each}
     </div>

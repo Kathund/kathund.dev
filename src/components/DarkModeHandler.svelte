@@ -1,5 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+
   let enabled = false;
 
   function theme(isDark: boolean) {

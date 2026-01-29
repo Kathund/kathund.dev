@@ -1,6 +1,5 @@
 <script lang="ts">
   import Separator from './Separator.svelte';
-  const path = window.location.pathname;
 </script>
 
 <div>
