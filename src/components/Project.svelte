@@ -30,6 +30,7 @@
     </div>
     <div>
       {#each lines as line (line)}
+        <!-- eslint-disable-next-line svelte/no-at-html-tags -->
         <p>{@html line}</p>
       {/each}
     </div>
