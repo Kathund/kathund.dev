@@ -7,6 +7,6 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   outDir: './build',
   integrations: [svelte()],
-  server: { allowedHosts: ['beta.antiwyvest.cc'], port: 44461 },
+  server: { host: true, allowedHosts: ['beta.kath.lol'], port: 44461 },
   vite: { plugins: [tailwindcss()] }
 });

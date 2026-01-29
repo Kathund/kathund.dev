@@ -1,0 +1,4 @@
+# hewo!
+User-agent: *
+Allow: /
+

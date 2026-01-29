@@ -1,0 +1,4 @@
+# bye bye :3
+User-agent: *
+Disallow: /
+
