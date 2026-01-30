@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.svelte';
-import Separator from '../components/Separator.svelte';
+import HorizontalSeparator from '../components/HorizontalSeparator.svelte';
+import VerticalSeparator from '../components/VerticalSeparator.svelte';
 import Footer from '../components/Footer.svelte';
 import Person, { type PersonProps } from '../components/Person.svelte';
 import '../styles/global.css';
@@ -19,7 +20,39 @@ export const coolPeople: PersonProps[] = [
   { name: 'saadndm' },
   { name: 'SoopyBoo32', site: 'https://soopy.dev', note: 'SoopyV3' },
   { name: 'ThatGravyBoat', site: 'https://thatgravyboat.tech' },
-  { name: 'Zickles' }
+  { name: 'Zickles', note: 'Paid to be hjre' }
+];
+
+export interface Button {
+  alt: string;
+  src: string;
+  href?: string;
+}
+
+export const peopleButtons: Button[] = [
+  { alt: 'kathund', src: '/button/kath.png', href: 'https://kathund.dev' },
+  { alt: 'mat', src: '/button/mat.png', href: 'https://matdoes.dev' }
+];
+
+export const buttons: Button[] = [
+  { alt: 'I use NixOS by the way!', src: '/button/nix_dark.webp', href: 'https://nixos.org' },
+  { alt: 'Powered By NixOS', src: '/button/powered_by_nixos.gif', href: 'https://nixos.org' },
+  { alt: 'Built With Nix!', src: '/button/built_with_nix.gif', href: 'https://nixos.org' },
+  { alt: 'Teted on Firefox', src: '/button/tested_on_firefox.gif', href: 'https://firefox.com' },
+  { alt: 'Build With Astro', src: '/button/build_with_astro.png', href: 'https://astro.build' },
+  { alt: 'Build With Svelte', src: '/button/build_with_svelte.gif', href: 'https://svelte.dev' },
+  { alt: 'neovim', src: '/button/neovim.gif', href: 'https://neovim.io' },
+  { alt: 'Anything But Chrome', src: '/button/anything_but_chrome.gif', href: 'https://firefox.com' },
+  { alt: 'I like pooters', src: '/button/i_like_computer.png' },
+  { alt: 'Internet Privacy', src: '/button/internet_privacy.gif', href: 'https://eff.org' },
+  { alt: 'Internet Archive', src: '/button/internet-archive.png', href: 'https://archive.org/' },
+  { alt: 'Privacy Now!', src: '/button/privacy_now.gif', href: '/kathund-pgp-public.pgp' },
+  { alt: 'qBittorrent', src: '/button/qbittorrent.png', href: 'https://www.qbittorrent.org/' },
+  { alt: 'Seed Torrents! Please', src: '/button/seed-torrents.gif', href: 'https://www.qbittorrent.org/' },
+  { alt: 'Best Viewed On Desktop!', src: '/button/best-on-desktop.gif' },
+  { alt: "Don't feed AI", src: '/button/dont_feed_ai.gif' },
+  { alt: 'AI is theft', src: '/button/ai_is_theft.webp' },
+  { alt: 'No AI', src: '/button/anti_ai.gif' }
 ];
 ---
 
@@ -75,26 +108,46 @@ export const coolPeople: PersonProps[] = [
       </div>
 
       <Footer client:only />
-      <Separator />
-
-      <div class="gap flex flex-col">
-        <div>
-          <p>Cool people! Please check them out</p>
-          <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
+      <HorizontalSeparator />
+      <div class="flex flex-row gap-2">
+        <div class="flex flex-col gap-2">
+          <div>
+            <p>Cool people! Please check them out</p>
+            <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
+          </div>
+          <div class="flex flex-col gap-2">
+            {
+              coolPeople
+                .sort((a, b) => a.name.localeCompare(b.name))
+                .map((person) => (
+                  <Person name={person.name} github={person.github} site={person.site} note={person.note} />
+                ))
+            }
+          </div>
         </div>
-        {
-          coolPeople
-            .sort((a, b) => a.name.localeCompare(b.name))
-            .map((person) => (
-              <Person
-                key={person.name}
-                name={person.name}
-                github={person.github}
-                site={person.site}
-                note={person.note}
-              />
-            ))
-        }
+        <VerticalSeparator />
+
+        <div>
+          <div class="grid h-fit grid-cols-3 gap-0 p-2">
+            {
+              peopleButtons.map((badge) => (
+                <a href={badge.href} class="h-[31px] w-[88px]">
+                  <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
+                </a>
+              ))
+            }
+          </div>
+          <HorizontalSeparator />
+          <div class="grid h-fit grid-cols-3 gap-0 p-2">
+            {
+              buttons.map((badge) => (
+                <a href={badge.href} class="h-[31px] w-[88px]">
+                  <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
+                </a>
+              ))
+            }
+          </div>
+        </div>
       </div>
     </main>
   </body>

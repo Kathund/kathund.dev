@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Separator from './Separator.svelte';
+  import HorizontalSeparator from './HorizontalSeparator.svelte';
 </script>
 
 <div>
-  <Separator />
+  <HorizontalSeparator />
   <div class="w-full flex flex-row justify-between">
     <div>
       <a target="_blank" href="https://discord.com/users/1276524855445164098"

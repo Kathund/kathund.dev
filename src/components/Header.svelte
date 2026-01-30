@@ -1,6 +1,6 @@
 <script lang="ts">
   import DarkModeHandler from './DarkModeHandler.svelte';
-  import Separator from './Separator.svelte';
+  import HorizontalSeparator from './HorizontalSeparator.svelte';
   import { twMerge } from 'tailwind-merge';
 
   const currentPath = window.location.pathname;
@@ -29,5 +29,5 @@
     <p>19 year old dev living in Australia!</p>
     <DarkModeHandler />
   </div>
-  <Separator />
+  <HorizontalSeparator />
 </div>
