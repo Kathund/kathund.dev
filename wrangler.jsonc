@@ -5,5 +5,5 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": { "binding": "ASSETS", "directory": "./build" },
   "observability": { "enabled": true },
-  "routes": [{ "pattern": "shop.example.com", "custom_domain": true }]
+  "routes": [{ "pattern": "kathund.dev", "custom_domain": true }]
 }
