@@ -6,8 +6,8 @@
   const currentPath = window.location.pathname;
   const pages = [
     { path: '/', name: 'Home' },
-    { path: '/projects', name: 'Projects' },
-    { path: '/about', name: 'About' }
+    { path: '/projects/', name: 'Projects' },
+    { path: '/about/', name: 'About' }
   ];
 </script>
 
