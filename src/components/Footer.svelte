@@ -9,7 +9,7 @@
     <div>
       <Link href="https://discord.com/users/1276524855445164098" text="Discord: @.kathund (1276524855445164098)" />
       <p>Matrix: @kathund:matrix.org</p>
-      <Link href="mailto:kathund@proton.me" text="mail: kathund@proton.me" />
+      <Link href="mailto:contact@kathund.dev" text="Email: contact@kathund.dev" />
     </div>
     <div class="text-right flex flex-col">
       <p>Made with <span class="text-ctp-mauve">&hearts;</span> by kathund</p>

@@ -1,4 +1,4 @@
-# kath.lol
+# kathund.dev
 
 website lol
 
@@ -32,13 +32,13 @@ npm install -g pnpm
 1. Clone the repository
 
 ```bash
-git clone https://github.com/Kathund/Kath.lol.git
+git clone https://github.com/Kathund/Kathund.dev.git
 ```
 
 2. Change directory to the project
 
 ```bash
-cd website
+cd kathund.dev
 ```
 
 3. Install the dependencies
@@ -49,34 +49,10 @@ pnpm install
 
 ## Running
 
-### Tailwind
-
-You can compile the tailwind using this command
-
-```bash
-pnpm tailwind
-```
-
-You can watch the tailwind and have it auto compile using this command
-
-```bash
-pnpm tailwind:watch
-```
-
-### Formatting
-
-This project uses prettier as a formatter.
-
-You can run prettier using this command
-
-```bash
-pnpm prettier
-```
-
-### Reloading Site
-
-You can enable a live server with hot reloading by running the following command
+You can enable a dev server with hot reloading by running the following command
 
 ```bash
 pnpm dev
 ```
+
+then go to http://localhost:44461/ for a live preview
