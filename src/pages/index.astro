@@ -2,6 +2,7 @@
 import Header from '../components/Header.svelte';
 import Footer from '../components/Footer.svelte';
 import Project from '../components/Project.svelte';
+import Link from '../components/Link.svelte';
 import '../styles/global.css';
 import { projects } from './projects/index.astro';
 ---
@@ -37,7 +38,7 @@ import { projects } from './projects/index.astro';
               ))
           }
         </div>
-        <a class="text-ctp-sapphire" href="/projects">Show more projects...</a>
+        <Link className="text-ctp-sapphire" href="/projects" text="Show more projects..." external={false} />
       </div>
 
       <Footer client:only />

@@ -1,20 +1,20 @@
 <script lang="ts">
   import HorizontalSeparator from './HorizontalSeparator.svelte';
+  import Link from './Link.svelte';
 </script>
 
 <div>
   <HorizontalSeparator />
   <div class="w-full flex flex-row justify-between">
     <div>
-      <a target="_blank" href="https://discord.com/users/1276524855445164098"
-        >Discord: @.kathund (1276524855445164098)</a>
+      <Link href="https://discord.com/users/1276524855445164098" text="Discord: @.kathund (1276524855445164098)" />
       <p>Matrix: @kathund:matrix.org</p>
-      <a target="_blank" href="mailto:kathund@proton.me">Email: kathund@proton.me</a>
+      <Link href="mailto:kathund@proton.me" text="mail: kathund@proton.me" />
     </div>
-    <div class="text-right">
+    <div class="text-right flex flex-col">
       <p>Made with <span class="text-ctp-mauve">&hearts;</span> by kathund</p>
-      <a target="_blank" href="https://catppuccin.com">Colors from Catppuccin</a>
-      <p><a href="/kathund-pgp-public.pgp">PGP Public Key</a></p>
+      <Link href="https://catppuccin.com" text="Colors from Catppuccin" />
+      <Link href="/kathund-pgp-public.pgp" text="PGP Public Key" external={false} />
     </div>
   </div>
 </div>

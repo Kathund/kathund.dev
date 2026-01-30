@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Link from './Link.svelte';
   export interface PersonProps {
     name: string;
     github?: string;
@@ -12,15 +13,15 @@
 
 <div>
   <div class="flex flex-row items-baseline gap-2">
-    <a href={site ?? github} target="_blank">- {name}</a>
+    <Link href={site ?? github} text="- {name}" />
     {#if note !== undefined}
       <p class="text-xs text-ctp-text/30">{note}</p>
     {/if}
   </div>
   <div class="pl-8 text-sm text-ctp-text/60 flex flex-col">
     {#if site !== undefined}
-      <a href={site} target="_blank">- Site</a>
+      <Link href={site} text="- Site" />
     {/if}
-    <a href={github} target="_blank">- GitHub</a>
+      <Link href={github} text="- GitHub" />
   </div>
 </div>

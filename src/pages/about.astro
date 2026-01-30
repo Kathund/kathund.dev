@@ -4,6 +4,7 @@ import HorizontalSeparator from '../components/HorizontalSeparator.svelte';
 import VerticalSeparator from '../components/VerticalSeparator.svelte';
 import Footer from '../components/Footer.svelte';
 import Person, { type PersonProps } from '../components/Person.svelte';
+import Link from '../components/Link.svelte';
 import '../styles/global.css';
 
 export const coolPeople: PersonProps[] = [
@@ -72,8 +73,8 @@ export const buttons: Button[] = [
       <div class="flex flex-col gap-3">
         <div>
           <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
-          <p>I primarily uses <a href="https://github.com/kathund/nix-config">NixOS</a> and NeoVim (uwu)</p>
-          <p>I'm <a target="_blank" href="https://time.is/UTC+8">UTC+8</a> so expect responses between 10am - 2am!</p>
+          <p>I primarily uses <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim (uwu)</p>
+          <p>I'm <Link href="https://time.is/UTC+8" text="UTC+8" /> so expect responses between 10am - 2am!</p>
           <p>
             If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very distracted!
           </p>
@@ -86,24 +87,24 @@ export const buttons: Button[] = [
           <p>- Java/Kotlin</p>
         </div>
 
-        <div>
+        <div class="flex flex-col">
           <p class="text-xl">Random things I know how to use:</p>
-          <p><a target="_blank" href="https://astro.build/">- Astro</a></p>
-          <p><a target="_blank" href="https://bun.sh">- Bun</a></p>
-          <p><a target="_blank" href="https://cloudflare.com">- Cloudflare</a></p>
-          <p><a target="_blank" href="https://discord.js.org">- Discord.js</a></p>
-          <p><a target="_blank" href="https://ejs.co/">- EJS</a></p>
-          <p><a target="_blank" href="https://nodejs.org/en">- Node.js</a></p>
-          <p><a target="_blank" href="https://react.dev/">- React</a></p>
-          <p><a target="_blank" href="https://sass-lang.com/">- SASS</a></p>
-          <p><a target="_blank" href="https://svelte.dev/">- Svelte</a></p>
-          <p><a target="_blank" href="https://tailwindcss.com/">- TailwindCSS</a></p>
+          <Link href="https://astro.build/" text="- Astro" />
+          <Link href="https://bun.sh" text="- Bun" />
+          <Link href="https://cloudflare.com" text="- Cloudflare" />
+          <Link href="https://discord.js.org" text="- Discord.js" />
+          <Link href="https://ejs.co/" text="- EJS" />
+          <Link href="https://nodejs.org/en" text="- Node.js" />
+          <Link href="https://react.dev/" text="- React" />
+          <Link href="https://sass-lang.com/" text="- SASS" />
+          <Link href="https://svelte.dev/" text="- Svelte" />
+          <Link href="https://tailwindcss.com/" text="- TailwindCSS" />
         </div>
 
-        <div>
+        <div class="flex flex-col">
           <p class="text-xl">Links:</p>
-          <p><a target="_blank" href="https://discord.com/users/1276524855445164098">- Discord</a></p>
-          <p><a target="_blank" href="https://github.com/Kathund">- GitHub</a></p>
+          <Link href="https://discord.com/users/1276524855445164098" text="- Discord" />
+          <Link href="https://github.com/Kathund" text="- GitHub" />
         </div>
       </div>
 
@@ -112,7 +113,7 @@ export const buttons: Button[] = [
       <div class="flex flex-row gap-2">
         <div class="flex flex-col gap-2">
           <div>
-            <p>Cool people! Please check them out</p>
+            <p>Cool people!</p>
             <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
           </div>
           <div class="flex flex-col gap-2">
@@ -131,7 +132,7 @@ export const buttons: Button[] = [
           <div class="grid h-fit grid-cols-3 gap-0 p-2">
             {
               peopleButtons.map((badge) => (
-                <a href={badge.href} class="h-[31px] w-[88px]">
+                <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
                   <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
                 </a>
               ))
@@ -141,7 +142,7 @@ export const buttons: Button[] = [
           <div class="grid h-fit grid-cols-3 gap-0 p-2">
             {
               buttons.map((badge) => (
-                <a href={badge.href} class="h-[31px] w-[88px]">
+                <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
                   <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
                 </a>
               ))

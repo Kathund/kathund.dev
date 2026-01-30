@@ -1,7 +1,7 @@
 <script lang="ts">
   import DarkModeHandler from './DarkModeHandler.svelte';
   import HorizontalSeparator from './HorizontalSeparator.svelte';
-  import { twMerge } from 'tailwind-merge';
+  import Link from './Link.svelte';
 
   const currentPath = window.location.pathname;
   const pages = [
@@ -19,9 +19,11 @@
     </div>
     <div class="text-right flex gap-2">
       {#each pages as page (page.path)}
-        <a
+        <Link
           href={page.path}
-          class={twMerge('hover:underline', currentPath === page.path ? 'text-ctp-pink underline' : '')}>{page.name}</a>
+          className={currentPath === page.path ? 'text-ctp-pink underline' : ''}
+          text={page.name}
+          external={false} />
       {/each}
     </div>
   </div>

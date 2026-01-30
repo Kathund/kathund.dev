@@ -2,6 +2,7 @@
   import type { TagProps } from './Tag.svelte';
   import Tags from './Tags.svelte';
   import Tag from './Tag.svelte';
+  import Link from './Link.svelte';
 
   export interface ProjectProps {
     title: string;
@@ -25,7 +26,7 @@
         {/if}
       </div>
       {#if path !== undefined}
-        <a class="text-ctp-sapphire" href={path}>Learn More</a>
+        <Link className="text-ctp-sapphire" href={path} text="Learn More" />
       {/if}
     </div>
     <div>
