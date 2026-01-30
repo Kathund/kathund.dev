@@ -7,6 +7,7 @@
   const pages = [
     { path: '/', name: 'Home' },
     { path: '/projects/', name: 'Projects' },
+    { path: '/time/', name: 'Time' },
     { path: '/about/', name: 'About' }
   ];
 </script>

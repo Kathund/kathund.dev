@@ -1,0 +1,10 @@
+---
+import TimeDifferences from '../components/Time/TimeDifferences.svelte';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Time">
+  <p class="text-2xl">I am <span class="text-ctp-red text-bold">UTC+8</span></p>
+  <p class="text-xl">This page is dedicated to helping people with timezones</p>
+  <TimeDifferences client:only />
+</Layout>
