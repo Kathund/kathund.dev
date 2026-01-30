@@ -2,10 +2,9 @@
 import HorizontalSeparator from '../components/HorizontalSeparator.svelte';
 import VerticalSeparator from '../components/VerticalSeparator.svelte';
 import Person, { type PersonProps } from '../components/Person.svelte';
-import Header from '../components/Header.svelte';
 import Footer from '../components/Footer.svelte';
+import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.svelte';
-import '../styles/global.css';
 
 export const coolPeople: PersonProps[] = [
   { name: 'aidn5', github: 'aidn3' },
@@ -57,99 +56,83 @@ export const buttons: Button[] = [
 ];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content={Astro.generator} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-  </head>
+<Layout title="About" footer={false}>
+  <div class="flex flex-col gap-3">
+    <div>
+      <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
+      <p>I primarily use <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim.</p>
+      <p>I'm <Link href="https://time.is/UTC+8" text="UTC+8" /> so expect responses between 10am - 2am!</p>
+      <p>
+        If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very distracted!
+      </p>
+    </div>
 
-  <body class="latte bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
-    <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
-      <Header client:only />
+    <div>
+      <p class="text-xl">Languages:</p>
+      <p>- TypeScript/JavaScript</p>
+      <p>- Rust</p>
+      <p>- Java/Kotlin</p>
+    </div>
 
-      <div class="flex flex-col gap-3">
-        <div>
-          <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
-          <p>I primarily use <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim.</p>
-          <p>I'm <Link href="https://time.is/UTC+8" text="UTC+8" /> so expect responses between 10am - 2am!</p>
-          <p>
-            If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very distracted!
-          </p>
-        </div>
+    <div class="flex flex-col">
+      <p class="text-xl">Random things I know how to use:</p>
+      <Link href="https://astro.build/" text="- Astro" />
+      <Link href="https://bun.sh" text="- Bun" />
+      <Link href="https://cloudflare.com" text="- Cloudflare" />
+      <Link href="https://discord.js.org" text="- Discord.js" />
+      <Link href="https://ejs.co/" text="- EJS" />
+      <Link href="https://nodejs.org/en" text="- Node.js" />
+      <Link href="https://react.dev/" text="- React" />
+      <Link href="https://sass-lang.com/" text="- SASS" />
+      <Link href="https://svelte.dev/" text="- Svelte" />
+      <Link href="https://tailwindcss.com/" text="- TailwindCSS" />
+    </div>
 
-        <div>
-          <p class="text-xl">Languages:</p>
-          <p>- TypeScript/JavaScript</p>
-          <p>- Rust</p>
-          <p>- Java/Kotlin</p>
-        </div>
+    <div class="flex flex-col">
+      <p class="text-xl">Links:</p>
+      <Link href="https://discord.com/users/1276524855445164098" text="- Discord @.kathund (1276524855445164098)" />
+      <Link href="https://github.com/Kathund" text="- GitHub" />
+    </div>
+  </div>
 
-        <div class="flex flex-col">
-          <p class="text-xl">Random things I know how to use:</p>
-          <Link href="https://astro.build/" text="- Astro" />
-          <Link href="https://bun.sh" text="- Bun" />
-          <Link href="https://cloudflare.com" text="- Cloudflare" />
-          <Link href="https://discord.js.org" text="- Discord.js" />
-          <Link href="https://ejs.co/" text="- EJS" />
-          <Link href="https://nodejs.org/en" text="- Node.js" />
-          <Link href="https://react.dev/" text="- React" />
-          <Link href="https://sass-lang.com/" text="- SASS" />
-          <Link href="https://svelte.dev/" text="- Svelte" />
-          <Link href="https://tailwindcss.com/" text="- TailwindCSS" />
-        </div>
-
-        <div class="flex flex-col">
-          <p class="text-xl">Links:</p>
-          <Link href="https://discord.com/users/1276524855445164098" text="- Discord @.kathund (1276524855445164098)" />
-          <Link href="https://github.com/Kathund" text="- GitHub" />
-        </div>
+  <Footer client:only />
+  <HorizontalSeparator />
+  <div class="flex flex-row gap-2">
+    <div class="flex flex-col gap-2">
+      <div>
+        <p>Cool people!</p>
+        <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
       </div>
+      <div class="flex flex-col gap-2">
+        {
+          coolPeople
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((person) => <Person name={person.name} github={person.github} site={person.site} note={person.note} />)
+        }
+      </div>
+    </div>
+    <VerticalSeparator />
 
-      <Footer client:only />
+    <div class="mr-8">
+      <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
+        {
+          peopleButtons.map((badge) => (
+            <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
+              <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
+            </a>
+          ))
+        }
+      </div>
       <HorizontalSeparator />
-      <div class="flex flex-row gap-2">
-        <div class="flex flex-col gap-2">
-          <div>
-            <p>Cool people!</p>
-            <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
-          </div>
-          <div class="flex flex-col gap-2">
-            {
-              coolPeople
-                .sort((a, b) => a.name.localeCompare(b.name))
-                .map((person) => (
-                  <Person name={person.name} github={person.github} site={person.site} note={person.note} />
-                ))
-            }
-          </div>
-        </div>
-        <VerticalSeparator />
-
-        <div class="mr-8">
-          <div class="grid h-fit grid-cols-1 lg:grid-cols-3 gap-0 p-2">
-            {
-              peopleButtons.map((badge) => (
-                <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
-                  <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
-                </a>
-              ))
-            }
-          </div>
-          <HorizontalSeparator />
-          <div class="grid h-fit grid-cols-1 lg:grid-cols-3 gap-0 p-2">
-            {
-              buttons.map((badge) => (
-                <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
-                  <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
-                </a>
-              ))
-            }
-          </div>
-        </div>
+      <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
+        {
+          buttons.map((badge) => (
+            <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
+              <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
+            </a>
+          ))
+        }
       </div>
-    </main>
-  </body>
-</html>
+    </div>
+  </div>
+</Layout>
