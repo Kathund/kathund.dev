@@ -3,11 +3,6 @@
   "type": "module",
   "version": "2.0.0",
   "packageManager": "pnpm@10.28.0",
-  "onlyBuiltDependencies": [
-    "esbuild",
-    "sharp",
-    "unrs-resolver"
-  ],
   "license": "MIT",
   "engines": {
     "node": ">=20.16.0",
