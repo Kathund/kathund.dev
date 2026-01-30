@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { TagProps } from './Tag.svelte';
   import Tags from './Tags.svelte';
-  import Tag from './Tag.svelte';
   import Link from './Link.svelte';
+  import Tag from './Tag.svelte';
 
   export interface ProjectProps {
     title: string;

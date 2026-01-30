@@ -1,6 +1,6 @@
 <script lang="ts">
-  import DarkModeHandler from './DarkModeHandler.svelte';
   import HorizontalSeparator from './HorizontalSeparator.svelte';
+  import DarkModeHandler from './DarkModeHandler.svelte';
   import Link from './Link.svelte';
 
   const currentPath = window.location.pathname;

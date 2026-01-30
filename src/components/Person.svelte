@@ -22,6 +22,6 @@
     {#if site !== undefined}
       <Link href={site} text="- Site" />
     {/if}
-      <Link href={github} text="- GitHub" />
+    <Link href={github} text="- GitHub" />
   </div>
 </div>
