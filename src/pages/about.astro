@@ -60,7 +60,7 @@ export const buttons: Button[] = [
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
@@ -103,7 +103,7 @@ export const buttons: Button[] = [
 
         <div class="flex flex-col">
           <p class="text-xl">Links:</p>
-          <Link href="https://discord.com/users/1276524855445164098" text="- Discord" />
+          <Link href="https://discord.com/users/1276524855445164098" text="- Discord @.kathund (1276524855445164098)" />
           <Link href="https://github.com/Kathund" text="- GitHub" />
         </div>
       </div>
@@ -128,8 +128,8 @@ export const buttons: Button[] = [
         </div>
         <VerticalSeparator />
 
-        <div>
-          <div class="grid h-fit grid-cols-3 gap-0 p-2">
+        <div class="mr-8">
+          <div class="grid h-fit grid-cols-1 lg:grid-cols-3 gap-0 p-2">
             {
               peopleButtons.map((badge) => (
                 <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
@@ -139,7 +139,7 @@ export const buttons: Button[] = [
             }
           </div>
           <HorizontalSeparator />
-          <div class="grid h-fit grid-cols-3 gap-0 p-2">
+          <div class="grid h-fit grid-cols-1 lg:grid-cols-3 gap-0 p-2">
             {
               buttons.map((badge) => (
                 <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">

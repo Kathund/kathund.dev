@@ -12,24 +12,26 @@
 </script>
 
 <div>
-  <div class="w-full flex flex-row justify-between">
-    <div class="flex flex-row gap-2 items-baseline">
-      <h1 class="text-ctp-pink text-3xl text-bold">Kathund</h1>
-      <span class="text-ctp-mauve text-sm">also known as Jacob!</span>
+  <div class="w-full flex flex-col lg:flex-row justify-between">
+    <div class="flex flex-col justify-between items-center lg:items-start">
+      <div class="flex flex-row gap-2 items-baseline">
+        <h1 class="text-ctp-pink text-3xl text-bold">Kathund</h1>
+        <span class="text-ctp-mauve text-sm">also known as Jacob!</span>
+      </div>
+      <p class="text-sm">19 year old dev living in Australia!</p>
     </div>
-    <div class="text-right flex gap-2">
-      {#each pages as page (page.path)}
-        <Link
-          href={page.path}
-          className={currentPath === page.path ? 'text-ctp-pink underline' : ''}
-          text={page.name}
-          external={false} />
-      {/each}
+    <div class="text-right flex flex-col justify-between items-center lg:items-end">
+      <div class="flex gap-3">
+        {#each pages as page (page.path)}
+          <Link
+            href={page.path}
+            className={currentPath === page.path ? 'text-ctp-pink underline' : ''}
+            text={page.name}
+            external={false} />
+        {/each}
+      </div>
+      <DarkModeHandler />
     </div>
-  </div>
-  <div class="w-full flex flex-row justify-between">
-    <p>19 year old dev living in Australia!</p>
-    <DarkModeHandler />
   </div>
   <HorizontalSeparator />
 </div>

@@ -30,7 +30,6 @@ export const projects: ProjectProps[] = [
       { tag: 'Website', href: 'https://polyfrost.org/projects/oneclient' }
     ],
     built: [
-      { tag: 'Tuari' },
       { tag: 'Tauri' },
       { tag: 'Rust' },
       { tag: 'TypeScript' },
@@ -83,7 +82,7 @@ export const projects: ProjectProps[] = [
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
@@ -93,7 +92,7 @@ export const projects: ProjectProps[] = [
     <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
       <Header client:only />
 
-      <div class="grid grid-cols-2 grid-rows-2 gap-2">
+      <div class="grid grid-cols-1 lg:grid-cols-2 grid-rows-1 lg:grid-rows-2 gap-2">
         {
           projects.map((project) => (
             <Project
