@@ -1,6 +1,6 @@
 <script lang="ts">
   import HorizontalSeparator from './HorizontalSeparator.svelte';
-  import DarkModeHandler from './DarkModeHandler.svelte';
+  import LightModeHandler from './LightModeHandler.svelte';
   import Link from './Link.svelte';
 
   const currentPath = window.location.pathname;
@@ -30,7 +30,7 @@
             external={false} />
         {/each}
       </div>
-      <DarkModeHandler />
+      <LightModeHandler />
     </div>
   </div>
   <HorizontalSeparator />
