@@ -1,10 +1,24 @@
 ---
-import TimeDifferences from '../components/Time/TimeDifferences.svelte';
+import TimeConversion from '../components/Time/TimeConversion.svelte';
+import TimeDifference from '../components/Time/TimeDifference.svelte';
+import ResponseTime from '../components/Time/ResponseTime.svelte';
+import KathundTime from '../components/Time/KathundTime.svelte';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Time">
-  <p class="text-2xl">I am <span class="text-ctp-red text-bold">UTC+8</span></p>
-  <p class="text-xl">This page is dedicated to helping people with timezones</p>
-  <TimeDifferences client:only />
+  <div class="flex flex-col gap-4">
+    <div>
+      <p class="text-2xl">
+        I am <span class="text-ctp-red text-bold">UTC+8</span> and it is currently <KathundTime client:only />
+      </p>
+      <TimeDifference client:only />
+      <p>Please expect responses between <ResponseTime client:only /></p>
+      <p>That is <ResponseTime client:only user={true} /> in <span class="text-ctp-red">your</span> timezone</p>
+    </div>
+    <div>
+      <p class="text-2xl">Convert a time to Kathund time</p>
+      <TimeConversion client:only />
+    </div>
+  </div>
 </Layout>

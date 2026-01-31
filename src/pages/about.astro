@@ -2,6 +2,7 @@
 import HorizontalSeparator from '../components/HorizontalSeparator.svelte';
 import VerticalSeparator from '../components/VerticalSeparator.svelte';
 import Person, { type PersonProps } from '../components/Person.svelte';
+import ResponseTime from '../components/Time/ResponseTime.svelte';
 import Footer from '../components/Footer.svelte';
 import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.svelte';
@@ -20,7 +21,7 @@ export const coolPeople: PersonProps[] = [
   { name: 'saadndm' },
   { name: 'SoopyBoo32', site: 'https://soopy.dev', note: 'SoopyV3' },
   { name: 'ThatGravyBoat', site: 'https://thatgravyboat.tech' },
-  { name: 'Zickles', note: 'Paid to be here' }
+  { name: 'Zickles', note: 'Paid to be mentioned', github: 'Kathund', site: 'https://bigrat.monster' }
 ];
 
 export interface Button {
@@ -61,7 +62,11 @@ export const buttons: Button[] = [
     <div>
       <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
       <p>I primarily use <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim.</p>
-      <p>I'm <Link href="https://time.is/UTC+8" text="UTC+8" /> so expect responses between 10am - 2am!</p>
+      <p>
+        I'm <Link href="/time" text="UTC+8" external={false} /> so expect responses between <ResponseTime
+          client:only
+        />! (<ResponseTime user={true} client:only /> in <span class="text-ctp-red">your</span> timezone)
+      </p>
       <p>
         If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very distracted!
       </p>

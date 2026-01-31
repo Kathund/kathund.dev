@@ -1,24 +1,10 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
-  let utc8Time: string = $state('UNKNOWN');
-  let time: string = $state('UNKNOWN');
   let timeDifference: string = $state('UNKNOWN');
 
   function updateTime() {
-    const settings: Record<string, any> = {
-      hour12: false,
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit'
-    };
     const now = new Date();
-
-    time = new Intl.DateTimeFormat('en-US', settings).format(now);
-    utc8Time = new Intl.DateTimeFormat('en-US', { ...settings, timeZone: 'Australia/Perth' }).format(now);
 
     const milliseconds =
       now.getTime() - new Date(now.toLocaleString('en-US', { timeZone: 'Australia/Perth' })).getTime();
@@ -43,8 +29,4 @@
   });
 </script>
 
-<div>
-  <p>Kathund Time: {utc8Time}</p>
-  <p>Your Time: {time}</p>
-  <p>You are <span class="text-ctp-red text-bold">{timeDifference}</span> Kathund</p>
-</div>
+<p>You are <span class="text-ctp-red text-bold">{timeDifference}</span> Kathund</p>
