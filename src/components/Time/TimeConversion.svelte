@@ -3,7 +3,7 @@
 
   let dateTimeString = $state<string>('');
   const kathundTime = $derived.by<string | Date>(() => {
-    if (!dateTimeString) return '-'
+    if (!dateTimeString) return '-';
     return getKathundTime(new Date(dateTimeString), { hideSecond: true });
   });
 </script>
