@@ -21,7 +21,10 @@ if (footer === undefined) footer = true;
     <meta name="robots" content="noindex" />
     <title>{`${title} | kathund.dev`}</title>
     <meta property="og:url" content="https://kathund.dev" />
-    <meta property="og:description" content="19 year old dev living in Australia!" />
+    <meta
+      property="og:description"
+      content={`${new Date().getUTCFullYear() - 2007} year old dev living in Australia!`}
+    />
     <meta property="og:site_name" content="kathund.dev" />
     <meta property="og:title" content={`${title} | kathund.dev`} />
     <meta name="theme-color" content="#f5c2e7" />
@@ -29,7 +32,7 @@ if (footer === undefined) footer = true;
     <meta property="og:image:alt" content="kathund Logo" />
     <meta property="og:image:width" content="1000" />
     <meta property="og:image:height" content="1000" />
-    <meta name="description" content="19 year old dev living in Australia!" />
+    <meta name="description" content={`${new Date().getUTCFullYear() - 2007} year old dev living in Australia!`} />
   </head>
 
   <body class="mocha bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">

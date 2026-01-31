@@ -19,7 +19,7 @@
         <h1 class="text-ctp-pink text-3xl text-bold">Kathund</h1>
         <span class="text-ctp-mauve text-sm">also known as Jacob!</span>
       </div>
-      <p class="text-sm">19 year old dev living in Australia!</p>
+      <p class="text-sm">{new Date().getUTCFullYear() - 2007} year old dev living in Australia!</p>
     </div>
     <div class="text-right flex flex-col justify-between items-center lg:items-end">
       <div class="flex gap-3">
