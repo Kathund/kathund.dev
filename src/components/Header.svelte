@@ -3,7 +3,12 @@
   import LightModeHandler from './LightModeHandler.svelte';
   import Link from './Link.svelte';
 
-  const currentPath = window.location.pathname;
+  export interface HeaderProps {
+    currentPath: string;
+  }
+
+  const { currentPath }: HeaderProps = $props();
+
   const pages = [
     { path: '/', name: 'Home' },
     { path: '/projects/', name: 'Projects' },

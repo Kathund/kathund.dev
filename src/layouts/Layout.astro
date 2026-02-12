@@ -9,6 +9,7 @@ interface Props {
 }
 let { title, footer } = Astro.props;
 if (footer === undefined) footer = true;
+const currentPath = Astro.url.pathname;
 ---
 
 <html lang="en">
@@ -37,11 +38,11 @@ if (footer === undefined) footer = true;
 
   <body class="mocha bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
     <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
-      <Header client:only />
+      <Header client:load currentPath={currentPath} />
 
       <slot />
 
-      {footer && <Footer client:only />}
+      {footer && <Footer />}
     </main>
   </body>
 </html>

@@ -10,15 +10,15 @@ import Layout from '../layouts/Layout.astro';
   <div class="flex flex-col gap-4">
     <div>
       <p class="text-2xl">
-        I am <span class="text-ctp-red text-bold">UTC+8</span> and it is currently <KathundTime client:only />
+        I am <span class="text-ctp-red text-bold">UTC+8</span> and it is currently <KathundTime client:load />
       </p>
-      <TimeDifference client:only />
-      <p>Please expect responses between <ResponseTime client:only /></p>
-      <p>That is <ResponseTime client:only user={true} /> in <span class="text-ctp-red">your</span> timezone</p>
+      <TimeDifference client:load />
+      <p>Please expect responses between <ResponseTime client:load /></p>
+      <p>That is <ResponseTime client:load user={true} /> in <span class="text-ctp-red">your</span> timezone</p>
     </div>
     <div>
       <p class="text-2xl">Convert a time to Kathund time</p>
-      <TimeConversion client:only />
+      <TimeConversion client:load />
     </div>
   </div>
 </Layout>
