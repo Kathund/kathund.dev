@@ -12,8 +12,21 @@ if (footer === undefined) footer = true;
 const currentPath = Astro.url.pathname;
 ---
 
-<html lang="en">
+<html lang="en" class="mocha">
   <head>
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('light');
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        const isLight = stored !== null ? stored === 'true' : prefersLight;
+
+        const root = document.documentElement;
+
+        root.classList.remove('mocha', 'latte');
+        root.classList.add(isLight ? 'latte' : 'mocha');
+      })();
+    </script>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -36,7 +49,7 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={`${new Date().getUTCFullYear() - 2007} year old dev living in Australia!`} />
   </head>
 
-  <body class="mocha bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
+  <body class="bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
     <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
       <Header client:load currentPath={currentPath} />
 

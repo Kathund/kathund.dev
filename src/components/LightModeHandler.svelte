@@ -4,8 +4,8 @@
   let enabled = false;
 
   function theme(isLight: boolean) {
-    document.body.classList.toggle('mocha', !isLight);
-    document.body.classList.toggle('latte', isLight);
+    document.documentElement.classList.toggle('mocha', !isLight);
+    document.documentElement.classList.toggle('latte', isLight);
     enabled = isLight;
     localStorage.setItem('light', String(isLight));
   }
@@ -15,13 +15,7 @@
   }
 
   onMount(() => {
-    const stored = localStorage.getItem('light');
-    if (stored !== null) {
-      theme(stored === 'true');
-    } else {
-      const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      theme(prefersLight);
-    }
+    enabled = document.documentElement.classList.contains('latte');
   });
 </script>
 
