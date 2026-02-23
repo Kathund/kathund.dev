@@ -120,7 +120,6 @@ export default [
       '@stylistic/semi': 'error',
       'no-self-compare': 'error',
       'no-new-wrappers': 'error',
-      '@stylistic/semi': 'error',
       'no-lone-blocks': 'error',
       'no-undef-init': 'error',
       'no-else-return': 'warn',

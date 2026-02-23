@@ -33,9 +33,6 @@ importers:
         specifier: ^4.1.18
         version: 4.1.18
     devDependencies:
-      '@eslint/js':
-        specifier: ^9.39.2
-        version: 9.39.2
       '@eslint/json':
         specifier: ^0.14.0
         version: 0.14.0
