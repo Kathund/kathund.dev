@@ -6,10 +6,7 @@
   "license": "MIT",
   "engines": {
     "node": ">=20.16.0",
-    "pnpm": ">=9.9.0",
-    "npm": "forbidden, use pnpm instead",
-    "yarn": "forbidden, use pnpm instead",
-    "bun": "forbidden, use pnpm instead"
+    "pnpm": ">=9.9.0"
   },
   "scripts": {
     "dev": "astro dev",
