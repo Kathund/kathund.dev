@@ -7,7 +7,7 @@
   <HorizontalSeparator />
   <div class="w-full flex flex-col lg:flex-row justify-between gap-3">
     <div class="flex flex-col justify-between items-center lg:items-start">
-      <p>Matrix: @kathund:matrix.org</p>
+      <p>Matrix: @kathund:snowball.kathund.dev</p>
       <Link href="mailto:contact@kathund.dev" text="Email: contact@kathund.dev" />
       <Link href="https://discord.com/users/1276524855445164098" text="Discord: @.kathund" />
     </div>
