@@ -18,34 +18,14 @@ export const projects: ProjectProps[] = [
     involvement: 'Maintainer'
   },
   {
-    title: 'OneClient',
+    title: 'Hypixel Discord Chat Bridge',
     lines: [
-      'The anti-client for minecraft!',
-      'Designed to be easy to use and built from the ground up to be fully open!'
+      'A two-way chat bridge between Hypixel guild chat and a Discord channel.',
+      'The application utilizes discord.js v14 for communicating with Discord, and Mineflayer for communicating with Hypixel'
     ],
-    links: [
-      { tag: 'GitHub', href: 'https://github.com/Polyfrost/OneLauncher' },
-      { tag: 'Website', href: 'https://polyfrost.org/projects/oneclient' }
-    ],
-    built: [
-      { tag: 'Tauri' },
-      { tag: 'Rust' },
-      { tag: 'TypeScript' },
-      { tag: 'React' },
-      { tag: 'TailwindCSS' },
-      { tag: 'TanStack' }
-    ],
+    links: [{ tag: 'GitHub', href: 'https://github.com/DuckySoLucky/hypixel-discord-chat-bridge' }],
+    built: [{ tag: 'TypeScript' }, { tag: 'Mineflayer' }, { tag: 'Discord.js' }],
     involvement: 'Maintainer'
-  },
-  {
-    title: 'Spotify Manager',
-    lines: ['Let anyone control your Spotify from an easy to use discord bot...', 'What could go wrong!'],
-    links: [
-      { tag: 'GitHub', href: 'https://github.com/Kathund/Spotify-Manager' },
-      { tag: 'Invite', href: 'https://discord.com/oauth2/authorize?client_id=1282608162591211583' }
-    ],
-    built: [{ tag: 'Bun' }, { tag: 'TypeScript' }, { tag: 'Discord.js' }],
-    involvement: 'Developer'
   },
   {
     title: 'kathund.dev (this site)',
@@ -64,13 +44,26 @@ export const projects: ProjectProps[] = [
     involvement: 'Developer'
   },
   {
-    title: 'Hypixel Discord Chat Bridge',
-    lines: [
-      'A two-way chat bridge between Hypixel guild chat and a Discord channel.',
-      'The application utilizes discord.js v14 for communicating with Discord, and Mineflayer for communicating with Hypixel'
+    title: 'Spotify Manager',
+    lines: ['Let anyone control your Spotify from an easy to use discord bot...', 'What could go wrong!'],
+    links: [
+      { tag: 'GitHub', href: 'https://github.com/Kathund/Spotify-Manager' },
+      { tag: 'Invite', href: 'https://discord.com/oauth2/authorize?client_id=1282608162591211583' }
     ],
-    links: [{ tag: 'GitHub', href: 'https://github.com/DuckySoLucky/hypixel-discord-chat-bridge' }],
-    built: [{ tag: 'JavaScript' }, { tag: 'Mineflayer' }, { tag: 'Discord.js' }],
+    built: [{ tag: 'Bun' }, { tag: 'TypeScript' }, { tag: 'Discord.js' }],
+    involvement: 'Developer'
+  },
+  {
+    title: 'OneClient',
+    lines: [
+      'The anti-client for minecraft!',
+      'Designed to be easy to use and built from the ground up to be fully open!'
+    ],
+    links: [
+      { tag: 'GitHub', href: 'https://github.com/Polyfrost/OneLauncher' },
+      { tag: 'Website', href: 'https://polyfrost.org/projects/oneclient' }
+    ],
+    built: [{ tag: 'Freya' }, { tag: 'Rust' }],
     involvement: 'Contributor'
   },
   {
