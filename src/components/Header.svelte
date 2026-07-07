@@ -13,6 +13,7 @@
     { path: '/', name: 'Home' },
     { path: '/projects/', name: 'Projects' },
     { path: '/time/', name: 'Time' },
+    { path: '/pronouns/', name: 'Pronouns' },
     { path: '/about/', name: 'About' }
   ];
 </script>
