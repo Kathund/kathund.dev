@@ -1,4 +1,5 @@
 ---
+import { setTheme, getCurrentThemeIndex } from '../lib/themes';
 import Header from '../components/Header.svelte';
 import Footer from '../components/Footer.svelte';
 import '../styles/global.css';
@@ -7,6 +8,7 @@ interface Props {
   title: string;
   footer?: boolean;
 }
+
 let { title, footer } = Astro.props;
 if (footer === undefined) footer = true;
 const currentPath = Astro.url.pathname;

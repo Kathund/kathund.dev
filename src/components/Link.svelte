@@ -1,5 +1,6 @@
 <script lang="ts">
   import { twMerge } from 'tailwind-merge';
+
   export interface LinkProps {
     text: string;
     href?: string;

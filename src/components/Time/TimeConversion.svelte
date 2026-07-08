@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getKathundTime } from '../../utils/time';
+  import { getKathundTime } from '../../lib/time';
 
   let dateTimeString = $state<string>('');
   const kathundTime = $derived.by<string | Date>(() => {

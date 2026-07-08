@@ -1,0 +1,78 @@
+export type PronounsLegendKey = 'Love' | 'Like' | 'Joke' | 'Close' | 'No';
+
+export interface PronounsLegendData {
+  icon: string;
+  title: string;
+  style: string;
+}
+
+export const PronounsLegend = {
+  Love: { icon: '💜', title: 'I love this!', style: 'font-bold text-ctp-mauve' },
+  Like: { icon: '👍', title: 'I like this', style: '' },
+  Joke: { icon: '😛', title: 'Only jokingly', style: 'text-ctp-peach' },
+  Close: { icon: '🫂', title: 'Only if we are close', style: 'pronouns-close-hover-gradient' },
+  No: { icon: '👎', title: 'No.', style: 'text-ctp-red' }
+} as const;
+
+export interface PronounData {
+  title: string;
+  key: PronounsLegendKey;
+}
+
+export interface PronounsListComponentData {
+  title: string;
+  big: boolean;
+  items: PronounData[];
+}
+
+export const GenericPronounGruop: PronounsListComponentData[] = [
+  {
+    title: 'Names',
+    big: true,
+    items: [
+      { title: 'Jacob', key: 'Love' },
+      { title: 'Kath/Kathund', key: 'Love' },
+      { title: 'Any variation of kat/kath', key: 'Close' }
+    ]
+  },
+  {
+    title: 'Pronouns',
+    big: true,
+    items: [
+      { title: 'Use my name', key: 'Love' },
+      { title: 'Any', key: 'Love' }
+    ]
+  }
+] as const;
+
+export const PronounDescriptionsGruop: PronounsListComponentData[] = [
+  {
+    title: 'Generic',
+    big: false,
+    items: [
+      { title: 'person', key: 'Love' },
+      { title: 'man', key: 'Like' },
+      { title: 'women', key: 'Like' },
+      { title: 'boy', key: 'Like' },
+      { title: 'girl', key: 'Like' },
+      { title: 'buddy', key: 'No' },
+      { title: 'pal', key: 'Joke' },
+      { title: 'bro', key: 'Like' },
+      { title: 'sis', key: 'Like' }
+    ]
+  },
+  {
+    title: 'Relationship',
+    big: false,
+    items: [
+      { title: 'friend', key: 'Love' },
+      { title: 'partner', key: 'Close' },
+      { title: 'boyfriend', key: 'Close' },
+      { title: 'girlfriend', key: 'Close' },
+      { title: 'husband', key: 'Close' },
+      { title: 'wife', key: 'Close' },
+      { title: 'darling', key: 'No' },
+      { title: 'beloved', key: 'Close' }
+    ]
+  }
+] as const;

@@ -1,0 +1,79 @@
+---
+import { GenericPronounGruop, PronounDescriptionsGruop, PronounsLegend } from '../lib/pronouns';
+import HorizontalSeparator from '../components/HorizontalSeparator.svelte';
+import VerticalSeparator from '../components/VerticalSeparator.svelte';
+import PronounsList from '../components/Pronouns/PronounsList.svelte';
+import Pronoun from '../components/Pronouns/Pronoun.svelte';
+import Button from '../components/Button.svelte';
+import Layout from '../layouts/Layout.astro';
+import Link from '../components/Link.svelte';
+---
+
+<Layout title="Pronouns">
+  <div class="flex flex-col">
+    <div class="grid h-fit grid-cols-1 p-2">
+      <div class="flex flex-row justify-between">
+        {
+          GenericPronounGruop.map(({ title, items, big }, index) => (
+            <PronounsList client:load title={title} items={items} big={big} right={Boolean(index % 2)} />
+          ))
+        }
+      </div>
+      <HorizontalSeparator />
+      <p class="flex w-full justify-center text-3xl">Descriptions</p>
+      <div class="flex flex-row justify-between">
+        {
+          PronounDescriptionsGruop.map(({ title, items, big }, index) => (
+            <PronounsList client:load title={title} items={items} big={big} right={Boolean(index % 2)} />
+          ))
+        }
+      </div>
+      <HorizontalSeparator />
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="flex flex-row justify-center">
+        <Button
+          client:load
+          alt="Pansexual"
+          src="/button/pansexual.png"
+          href="https://en.pronouns.page/terminology?filter=pansexual"
+        />
+        <div class="flex max-w-7/10 flex-wrap justify-center">
+          {
+            Object.entries(PronounsLegend).map(([key, { style, title }]) => (
+              <div class="px-2">
+                <Pronoun client:load key={key} title={title} right={false} />
+              </div>
+            ))
+          }
+        </div>
+        <Button
+          client:load
+          alt="Nonbinary"
+          src="/button/nonbinary.png"
+          href="https://en.pronouns.page/terminology?filter=nonbinary"
+        />
+      </div>
+      <div>
+        <Link
+          className="flex w-full justify-center"
+          href="https://en.pronouns.page/@kathund"
+          text="https://en.pronouns.page/@kathund"
+        />
+        <Link
+          className="flex w-full justify-center"
+          href="https://en.pronouns.page/@kathund"
+          text="(The same just differnt ui)"
+        />
+      </div>
+      <div class="flex w-full justify-center">
+        <Button
+          client:load
+          alt="Pride Progress"
+          src="/button/progress.png"
+          href="https://en.pronouns.page/terminology?filter=progress"
+        />
+      </div>
+    </div>
+  </div>
+</Layout>

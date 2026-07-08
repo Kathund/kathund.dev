@@ -1,17 +1,26 @@
 <script lang="ts">
+  import { randomCase } from '../lib/misc';
   import Link from './Link.svelte';
+
   export interface PersonProps {
     name: string;
     github?: string;
     site?: string;
     note?: string;
+    shouldRandomCase?: boolean;
   }
 
-  let { name, github, site, note }: PersonProps = $props();
+  let { name, github, site, note, shouldRandomCase }: PersonProps = $props();
   github = `https://github.com/${github ?? name}`;
+
+  function randomizeName() {
+    name = shouldRandomCase === true ? randomCase(name) : name;
+  }
+
+  randomizeName();
 </script>
 
-<div>
+<div on:mouseover={randomizeName}>
   <div class="flex flex-row items-baseline gap-2">
     <Link href={site ?? github} text="- {name}" />
     {#if note !== undefined}

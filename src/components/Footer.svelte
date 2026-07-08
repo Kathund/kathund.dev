@@ -12,7 +12,7 @@
       <Link href="https://discord.com/users/1276524855445164098" text="Discord: @.kathund" />
     </div>
     <div class="text-right flex flex-col justify-between items-center lg:items-end">
-      <p>Made with <span class="text-ctp-mauve">&hearts;</span> by kathund</p>
+      <p>Made with 💜 by kathund</p>
       <Link href="https://catppuccin.com" text="Colors from Catppuccin" />
       <Link href="/kathund-pgp-public.pgp" text="PGP Public Key" external={false} />
     </div>

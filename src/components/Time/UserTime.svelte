@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from 'svelte';
-  import { getKathundTime } from '../../utils/time';
+  import { getKathundTime } from '../../lib/time';
 
   let userTime: string = $state('UNKNOWN');
 

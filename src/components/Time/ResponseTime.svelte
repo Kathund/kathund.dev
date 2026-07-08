@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { getKathundTime, getUserTime, type TimeOptions } from '../../utils/time';
+  import { getKathundTime, getUserTime, type TimeOptions } from '../../lib/time';
 
   export interface ResponseTimeProps {
     user?: boolean;

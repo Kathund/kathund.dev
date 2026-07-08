@@ -1,2 +1,42 @@
 @import 'tailwindcss';
 @import '@catppuccin/tailwindcss/mocha.css';
+
+@theme {
+  --animate-text-gradient: text-gradient 6s ease infinite;
+
+  @keyframes text-gradient {
+    0% {
+      background-position: 0% 25%;
+    }
+
+    100% {
+      background-position: 200% 25%;
+    }
+  }
+}
+
+@utility pronouns-close-hover-gradient {
+  color: var(--color-ctp-pink);
+  transition: all 0.6s ease-in-out;
+  background-image: linear-gradient(to right, var(--color-ctp-pink), var(--color-ctp-sky), var(--color-ctp-pink));
+  background-size: 200% auto;
+  background-position: 0% 25%;
+  -webkit-background-clip: text;
+
+  &:hover {
+    color: transparent;
+    animation: var(--animate-text-gradient);
+    filter: drop-shadow(0 0 12px rgba(224, 180, 242, 0.7));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    color: var(--color-ctp-pink);
+    transition: none;
+    animation: none;
+
+    &:hover {
+      color: var(--color-ctp-pink);
+      filter: none;
+    }
+  }
+}

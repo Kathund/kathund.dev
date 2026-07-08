@@ -23,7 +23,8 @@
     <div class="flex flex-col justify-between items-center lg:items-start">
       <div class="flex flex-row gap-2 items-baseline">
         <h1 class="text-ctp-pink text-3xl text-bold">Kathund</h1>
-        <span class="text-ctp-mauve text-sm">also known as Jacob!</span>
+        <span class="text-ctp-mauve text-sm">or Jacob!</span>
+        <span class="text-ctp-sapphire text-sm">(any)</span>
       </div>
       <p class="text-sm">{new Date().getUTCFullYear() - 2007} year old dev living in Australia!</p>
     </div>

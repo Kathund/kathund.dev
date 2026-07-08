@@ -11,7 +11,6 @@ export default defineConfig({
   integrations: [svelte()],
   server: { host: true, allowedHosts: ['beta.kathund.dev', 'kathund.dev'], port: 44461 },
   vite: { plugins: [tailwindcss()] },
-  redirects: { '/pronouns': 'https://en.pronouns.page/@kathund' },
   site: 'https://kathund.dev',
   adapter: cloudflare()
 });

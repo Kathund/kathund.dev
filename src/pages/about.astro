@@ -1,19 +1,38 @@
 ---
 import HorizontalSeparator from '../components/HorizontalSeparator.svelte';
 import VerticalSeparator from '../components/VerticalSeparator.svelte';
+import Button, { type ButtonProps } from '../components/Button.svelte';
 import Person, { type PersonProps } from '../components/Person.svelte';
 import ResponseTime from '../components/Time/ResponseTime.svelte';
 import Footer from '../components/Footer.svelte';
 import Layout from '../layouts/Layout.astro';
 import Link from '../components/Link.svelte';
 
+export interface Thing {
+  href: string;
+  text: string;
+}
+
+export const thingsIUse: Thing[] = [
+  { href: 'https://astro.build', text: 'Astro' },
+  { href: 'https://bun.sh', text: 'Bun' },
+  { href: 'https://cloudflare.com', text: 'Cloudflare' },
+  { href: 'https://discord.js.org', text: 'Discord.js' },
+  { href: 'https://ejs.co', text: 'EJS' },
+  { href: 'https://nodejs.org/en', text: 'Node.js' },
+  { href: 'https://react.dev', text: 'React' },
+  { href: 'https://sass-lang.com', text: 'SASS' },
+  { href: 'https://svelte.dev', text: 'Svelte' },
+  { href: 'https://tailwindcss.com', text: 'TailwindCSS' }
+];
+
 export const coolPeople: PersonProps[] = [
   { name: 'aidn5', github: 'aidn3' },
-  { name: 'Bloxigus' },
+  { name: 'bloxigus', shouldRandomCase: true },
   { name: 'DuckySoLucky', site: 'https://duckysolucky.is-a.dev' },
   { name: 'Empa', github: 'ItsEmpa', note: 'emma' },
-  { name: 'Juna', github: 'j10a1n15', note: 'Tuba 🎺' },
-  { name: 'MadelynWith5Ns', github: 'madelynwith5ns', site: 'https://mw5ns.com', note: 'woof 🩷' },
+  { name: 'juna', github: 'j10a1n15', note: 'Tuba 🎺', shouldRandomCase: true },
+  { name: 'MadelynWith5Ns', github: 'madelynwith5ns', site: 'https://mw5ns.com', note: 'woof' },
   { name: 'Mat', github: 'mat-1', site: 'https://matdoes.dev' },
   { name: 'Meowora', site: 'https://mona.cat' },
   { name: 'RagingEnby', site: 'https://ragingenby.dev' },
@@ -27,19 +46,13 @@ export const coolPeople: PersonProps[] = [
   { name: 'WarpWing', site: 'https://blog.warpwing.cloud' }
 ];
 
-export interface Button {
-  alt: string;
-  src: string;
-  href?: string;
-}
-
-export const peopleButtons: Button[] = [
+export const peopleButtons: ButtonProps[] = [
   { alt: 'kathund', src: '/button/people/kath.png', href: 'https://kathund.dev' },
   { alt: 'mat', src: '/button/people/mat.png', href: 'https://matdoes.dev' },
-  { alt: 'shiny', src: '/button/people/shiny.png', href: 'https://awruff.codeberg.page' }
+  { alt: 'shiny', src: '/button/people/shiny.png', href: 'https://awruff.dog' }
 ];
 
-export const buttons: Button[] = [
+export const buttons: ButtonProps[] = [
   { alt: 'I use NixOS by the way!', src: '/button/nix_dark.webp', href: 'https://nixos.org' },
   { alt: 'Powered By NixOS', src: '/button/powered_by_nixos.gif', href: 'https://nixos.org' },
   { alt: 'Built With Nix!', src: '/button/built_with_nix.gif', href: 'https://nixos.org' },
@@ -57,7 +70,22 @@ export const buttons: Button[] = [
   { alt: 'Best Viewed On Desktop!', src: '/button/best-on-desktop.gif' },
   { alt: "Don't feed AI", src: '/button/dont_feed_ai.gif' },
   { alt: 'AI is theft', src: '/button/ai_is_theft.webp' },
-  { alt: 'No AI', src: '/button/anti_ai.gif' }
+  { alt: 'No AI', src: '/button/anti_ai.gif' },
+  {
+    alt: 'Pride Progress',
+    src: '/button/progress_button.png',
+    href: 'https://en.pronouns.page/terminology?filter=progress'
+  },
+  {
+    alt: 'Pansexual',
+    src: '/button/pansexual_button.png',
+    href: 'https://en.pronouns.page/terminology?filter=pansexual'
+  },
+  {
+    alt: 'Nonbinary',
+    src: '/button/nonbinary_button.png',
+    href: 'https://en.pronouns.page/terminology?filter=nonbinary'
+  }
 ];
 ---
 
@@ -85,16 +113,11 @@ export const buttons: Button[] = [
 
     <div class="flex flex-col">
       <p class="text-xl">Random things I know how to use:</p>
-      <Link href="https://astro.build/" text="- Astro" />
-      <Link href="https://bun.sh" text="- Bun" />
-      <Link href="https://cloudflare.com" text="- Cloudflare" />
-      <Link href="https://discord.js.org" text="- Discord.js" />
-      <Link href="https://ejs.co/" text="- EJS" />
-      <Link href="https://nodejs.org/en" text="- Node.js" />
-      <Link href="https://react.dev/" text="- React" />
-      <Link href="https://sass-lang.com/" text="- SASS" />
-      <Link href="https://svelte.dev/" text="- Svelte" />
-      <Link href="https://tailwindcss.com/" text="- TailwindCSS" />
+      {
+        thingsIUse
+          .sort((a, b) => a.text.localeCompare(b.text))
+          .map(({ href, text }) => <Link href={href} text={`- ${text}`} />)
+      }
     </div>
 
     <div class="flex flex-col">
@@ -118,7 +141,16 @@ export const buttons: Button[] = [
         {
           coolPeople
             .sort((a, b) => a.name.localeCompare(b.name))
-            .map((person) => <Person name={person.name} github={person.github} site={person.site} note={person.note} />)
+            .map((person) => (
+              <Person
+                client:load
+                name={person.name}
+                github={person.github}
+                site={person.site}
+                note={person.note}
+                shouldRandomCase={person.shouldRandomCase}
+              />
+            ))
         }
       </div>
     </div>
@@ -126,23 +158,11 @@ export const buttons: Button[] = [
 
     <div class="mr-8">
       <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
-        {
-          peopleButtons.map((badge) => (
-            <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
-              <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
-            </a>
-          ))
-        }
+        {peopleButtons.map(({ alt, src, href }) => <Button client:load alt={alt} src={src} href={href} />)}
       </div>
       <HorizontalSeparator />
       <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
-        {
-          buttons.map((badge) => (
-            <a href={badge.href} class="h-[31px] w-[88px]" target="_blank">
-              <img src={badge.src} alt={badge.alt} width="88" height="31" class="h-[31px] w-[88px]" />
-            </a>
-          ))
-        }
+        {buttons.map(({ alt, src, href }) => <Button client:load alt={alt} src={src} href={href} />)}
       </div>
     </div>
   </div>
