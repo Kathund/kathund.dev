@@ -4,6 +4,7 @@
   let isHovered: boolean = $state(false);
   let x: number = $state(0);
   let y: number = $state(0);
+  let container: HTMLElement | null = $state<HTMLElement | null>(null);
 
   function portal(node: HTMLElement) {
     document.body.appendChild(node);
@@ -13,16 +14,12 @@
       }
     };
   }
-
-  function mouseOver(event: MouseEvent) {
+  function mouseEnter() {
+    if (!container) return;
     isHovered = true;
-    x = event.pageX;
-    y = event.pageY + 25;
-  }
-
-  function mouseMove(event: MouseEvent) {
-    x = event.pageX;
-    y = event.pageY + 25;
+    const boundingBox = container.getBoundingClientRect();
+    x = boundingBox.left + boundingBox.width / 2;
+    y = boundingBox.top;
   }
 
   function mouseLeave() {
@@ -37,17 +34,17 @@
   const { title, className }: ToolTipProps = $props();
 </script>
 
-<div on:mouseover={mouseOver} on:mousemove={mouseMove} on:mouseleave={mouseLeave}>
+<div bind:this={container} on:mouseenter={mouseEnter} on:mouseleave={mouseLeave}>
   <slot />
 </div>
 
 {#if isHovered}
   <div
     use:portal
-    style="top: {y}px; left: {x}px; transform: translateX(-50%);"
+    style="top: {y}px; left: {x}px;"
     class={twMerge(
-      'absolute bg-ctp-base p-2 border-ctp-sapphire border rounded-xl drop-shadow-lg drop-shadow-ctp-sapphire/30',
-      className
+      'absolute font-mono font-normal bg-ctp-base p-2 px-4 border-ctp-surface2 border rounded-xl -translate-x-1/2 -translate-y-full -mt-3',
+      className?.replaceAll('pronouns-close-hover-gradient', 'text-ctp-pink')
     )}>
     {title}
   </div>

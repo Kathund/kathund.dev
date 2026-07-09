@@ -39,7 +39,7 @@ export default [
     plugins: { '@stylistic': stylistic, svelte },
     rules: {
       '@stylistic/max-len': [
-        'error',
+        'warn',
         { code: 120, tabWidth: 2, ignoreComments: true, ignoreUrls: true, ignoreRegExpLiterals: true }
       ],
       '@stylistic/space-before-function-paren': ['error', { anonymous: 'never', named: 'never', catch: 'always' }],

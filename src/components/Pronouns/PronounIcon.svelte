@@ -9,6 +9,6 @@
   const { key }: PronounIconProps = $props();
 </script>
 
-<Tooltip title={PronounsLegend[key].title}>
+<Tooltip title={PronounsLegend[key].title} className={PronounsLegend[key].style}>
   <span class="text-ctp-text">{PronounsLegend[key].icon}</span>
 </Tooltip>
