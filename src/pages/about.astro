@@ -34,7 +34,7 @@ export const coolPeople: PersonProps[] = [
   { name: 'juna', github: 'j10a1n15', note: 'Tuba 🎺', shouldRandomCase: true },
   { name: 'MadelynWith5Ns', github: 'madelynwith5ns', site: 'https://mw5ns.com', note: 'woof' },
   { name: 'Mat', github: 'mat-1', site: 'https://matdoes.dev' },
-  { name: 'Meowora', site: 'https://mona.cat' },
+  { name: 'Meowora', site: 'https://mona.gay' },
   { name: 'RagingEnby', site: 'https://ragingenby.dev' },
   { name: 'saadndm' },
   { name: 'SoopyBoo32', site: 'https://soopy.dev', note: 'SoopyV3' },
@@ -43,7 +43,8 @@ export const coolPeople: PersonProps[] = [
   { name: 'DarthGigi', site: 'https://mrgigi.me' },
   { name: 'Wyvest', site: 'https://wyvest.net' },
   { name: 'AzureAaron', site: 'https://azureaaron.net' },
-  { name: 'WarpWing', site: 'https://blog.warpwing.cloud' }
+  { name: 'WarpWing', site: 'https://blog.warpwing.cloud' },
+  { name: 'Shine', site: 'https://awruff.dog', github: 'awruff', codeberg: 'awruff' }
 ];
 
 export const peopleButtons: ButtonProps[] = [
@@ -91,6 +92,7 @@ export const buttons: ButtonProps[] = [
 
 <Layout title="About" footer={false}>
   <div class="flex flex-col gap-3">
+    fever
     <div>
       <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
       <p>I primarily use <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim.</p>
@@ -125,6 +127,7 @@ export const buttons: ButtonProps[] = [
       <p>- Matrix: @kathund:snowball.kathund.dev</p>
       <p>- Matrix: @kathund:matrix.org (DEPRECATED and will not check)</p>
       <Link href="https://discord.com/users/1276524855445164098" text="- Discord: @.kathund (1276524855445164098)" />
+      <Link href="https://ko-fi.com/kathund" text="- Ko-fi" />
       <Link href="https://github.com/Kathund" text="- GitHub: @kathund" />
     </div>
   </div>
@@ -146,6 +149,7 @@ export const buttons: ButtonProps[] = [
                 client:load
                 name={person.name}
                 github={person.github}
+                codeberg={person.codeberg}
                 site={person.site}
                 note={person.note}
                 shouldRandomCase={person.shouldRandomCase}
