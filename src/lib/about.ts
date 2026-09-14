@@ -20,34 +20,124 @@ export const ThingsIUse: Thing[] = [
 
 export interface PersonProps {
   name: string;
-  github?: string | null;
-  codeberg?: string;
-  site?: string;
+  links?: Thing[];
   note?: string;
   shouldRandomCase?: boolean;
 }
 
 export const CoolPeople: PersonProps[] = [
-  { name: 'aidn5', github: 'aidn3' },
-  { name: 'bloxigus', shouldRandomCase: true },
-  { name: 'DuckySoLucky', site: 'https://duckysolucky.is-a.dev' },
-  { name: 'Empa', github: 'ItsEmpa', note: 'emma' },
-  { name: 'juna', github: 'j10a1n15', note: 'Tuba 🎺', shouldRandomCase: true },
-  { name: 'MadelynWith5Ns', github: 'madelynwith5ns', site: 'https://mw5ns.com', note: 'woof' },
-  { name: 'Mat', github: 'mat-1', site: 'https://matdoes.dev' },
-  { name: 'Meowora', site: 'https://mona.gay' },
-  { name: 'RagingEnby', site: 'https://ragingenby.dev' },
-  { name: 'saadndm' },
-  { name: 'SoopyBoo32', site: 'https://soopy.dev', note: 'SoopyV3' },
-  { name: 'ThatGravyBoat', site: 'https://thatgravyboat.tech' },
-  { name: 'Zickles', note: '🐀' },
-  { name: 'DarthGigi', site: 'https://mrgigi.me' },
-  { name: 'Wyvest', site: 'https://wyvest.net' },
-  { name: 'AzureAaron', site: 'https://azureaaron.net' },
-  { name: 'WarpWing', site: 'https://blog.warpwing.cloud' },
-  { name: 'Shine', site: 'https://awruff.dog', github: 'awruff', codeberg: 'awruff' },
-  { name: 'nea', site: 'https://nea.moe', github: 'lineargraph' },
-  { name: 'amy', site: 'https://amy.rip', github: null }
+  { name: 'aidn5', links: [{ href: 'https://github.com/aidn3', text: 'Github' }] },
+  { name: 'amy', links: [{ href: 'https://amy.rip', text: 'Site' }] },
+  { name: 'autumn', links: [{ href: 'https://itpuppy.pet', text: 'Site' }] },
+  {
+    name: 'AzureAaron',
+    links: [
+      { href: 'https://github.com/AzureAaron', text: 'Github' },
+      { href: 'https://azureaaron.net', text: 'Site' }
+    ]
+  },
+  {
+    name: 'Bloxigus',
+    links: [{ href: 'https://github.com/Bloxigus', text: 'Github' }],
+    note: 'Cardbord Box',
+    shouldRandomCase: true
+  },
+  {
+    name: 'DarthGigi',
+    links: [
+      { href: 'https://github.com/DarthGigi', text: 'Github' },
+      { href: 'https://mrgigi.me', text: 'Site' }
+    ]
+  },
+  {
+    name: 'DuckySoLucky',
+    links: [
+      { href: 'https://github.com/DuckySoLucky', text: 'Github' },
+      { href: 'https://duckysolucky.is-a.dev', text: 'Site' }
+    ]
+  },
+  { name: 'Empa', links: [{ href: 'https://github.com/ItsEmpa', text: 'Github' }], note: 'emma' },
+  {
+    name: 'juna',
+    links: [{ href: 'https://github.com/j10a1n15', text: 'Github' }],
+    note: 'Tuba 🎺',
+    shouldRandomCase: true
+  },
+  {
+    name: 'MadelynWith5Ns',
+    links: [
+      { href: 'https://github.com/madelynwith5ns', text: 'Github' },
+      { href: 'https://mw5ns.com', text: 'Site' }
+    ],
+    note: 'woof'
+  },
+  {
+    name: 'Mat',
+    links: [
+      { href: 'https://github.com/mat-1', text: 'Github' },
+      { href: 'https://matdoes.dev', text: 'Site' }
+    ]
+  },
+  {
+    name: 'Meowora',
+    links: [
+      { href: 'https://github.com/meowora', text: 'Github' },
+      { href: 'https://mona.gay', text: 'Site' }
+    ]
+  },
+  {
+    name: 'nea',
+    links: [
+      { href: 'https://github.com/lineargraph', text: 'Github' },
+      { href: 'https://nea.moe', text: 'Site' }
+    ]
+  },
+  {
+    name: 'RagingEnby',
+    links: [
+      { href: 'https://github.com/RagingEnby', text: 'Github' },
+      { href: 'https://ragingenby.dev', text: 'Site' }
+    ]
+  },
+  { name: 'saadndm', links: [{ href: 'https://github.com/saadndm', text: 'Github' }] },
+  {
+    name: 'Shine',
+    links: [
+      { href: 'https://codeberg.org/awruff', text: 'Codeberg' },
+      { href: 'https://github.com/awruff', text: 'Github' },
+      { href: 'https://awruff.dog', text: 'Site' }
+    ]
+  },
+  {
+    name: 'Soopyboo32',
+    links: [
+      { href: 'https://github.com/Soopyboo32', text: 'Github' },
+      { href: 'https://soopy.dev', text: 'Site' }
+    ],
+    note: 'SoopyV3'
+  },
+  {
+    name: 'ThatGravyBoat',
+    links: [
+      { href: 'https://github.com/ThatGravyBoat', text: 'Github' },
+      { href: 'https://thatgravyboat.tech', text: 'Site' }
+    ]
+  },
+  {
+    name: 'WarpWing',
+    links: [
+      { href: 'https://github.com/WarpWing', text: 'Github' },
+      { href: 'https://blog.warpwing.cloud', text: 'Site' }
+    ]
+  },
+  {
+    name: 'Wyvest',
+    links: [
+      { href: 'https://github.com/Wyvest', text: 'Github' },
+      { href: 'https://wyvest.net', text: 'Site' }
+    ]
+  },
+  { name: 'Zickles', links: [{ href: 'https://github.com/Zickles', text: 'Github' }], note: '🐀' }
 ];
 
 export interface PersonButtonProps extends Omit<ButtonProps, 'src'> {
@@ -67,7 +157,9 @@ export const PeopleButtons: PersonButtonProps[] = [
   { alt: 'mat', href: 'https://matdoes.dev' },
   { alt: 'Shiny', href: 'https://awruff.dog' },
   { alt: 'nea', href: 'https://nea.moe' },
-  { alt: 'amy', href: 'https://amy.rip' }
+  { alt: 'amy', href: 'https://amy.rip' },
+  { alt: 'itpuppy', href: 'https://itpuppy.pet' },
+  { alt: 'meowona', href: 'https://mona.gay' }
 ];
 export const PeopleButtonsByAlt = new Map(PeopleButtons.map((person) => [person.alt, person]));
 

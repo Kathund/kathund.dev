@@ -63,15 +63,7 @@ import Link from '../components/Link.svelte';
       <div class="flex flex-col gap-2">
         {
           CoolPeople.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())).map((person) => (
-            <Person
-              client:load
-              name={person.name}
-              github={person.github}
-              codeberg={person.codeberg}
-              site={person.site}
-              note={person.note}
-              shouldRandomCase={person.shouldRandomCase}
-            />
+            <Person client:load {...person} />
           ))
         }
       </div>
@@ -81,16 +73,14 @@ import Link from '../components/Link.svelte';
     <div class="mr-8">
       <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
         {
-          PeopleButtons.sort((a, b) => a.alt.toLowerCase().localeCompare(b.alt.toLowerCase())).map(
-            ({ alt, src, href, light, dark }) => (
-              <PersonButton client:load alt={alt} src={src} href={href} light={light} dark={dark} />
-            )
-          )
+          PeopleButtons.sort((a, b) => a.alt.toLowerCase().localeCompare(b.alt.toLowerCase())).map((button) => (
+            <PersonButton client:load {...button} />
+          ))
         }
       </div>
       <HorizontalSeparator />
       <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
-        {Buttons.map(({ alt, src, href }) => <Button client:load alt={alt} src={src} href={href} />)}
+        {Buttons.map((button) => <Button client:load {...button} />)}
       </div>
     </div>
   </div>

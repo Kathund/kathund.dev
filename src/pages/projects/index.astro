@@ -78,17 +78,6 @@ export const projects: ProjectProps[] = [
 
 <Layout title="Projects">
   <div class="grid grid-cols-1 grid-rows-1 gap-2 lg:grid-cols-2 lg:grid-rows-2">
-    {
-      projects.map((project) => (
-        <Project
-          title={project.title}
-          lines={project.lines}
-          links={project.links}
-          built={project.built}
-          involvement={project.involvement}
-          path={project.path}
-        />
-      ))
-    }
+    {projects.map((project) => <Project {...project} />)}
   </div>
 </Layout>
