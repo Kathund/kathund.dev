@@ -8,6 +8,6 @@
 
 <Tooltip title={alt}>
   <a {href} class="h-[31px] w-[88px]" target="_blank">
-    <img {src} {alt} {id} width="88" height="31" class="h-[31px] w-[88px]" />
+    <img {src} {alt} {id} width="88" height="31" class="w-[88px]" />
   </a>
 </Tooltip>
