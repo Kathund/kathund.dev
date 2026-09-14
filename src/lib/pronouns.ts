@@ -34,14 +34,7 @@ export const GenericPronounGruop: PronounsListComponentData[] = [
       { title: 'Kath', key: 'No' }
     ]
   },
-  {
-    title: 'Pronouns',
-    big: true,
-    items: [
-      { title: 'Use my name', key: 'Love' },
-      { title: 'she/her', key: 'Love' }
-    ]
-  }
+  { title: 'Pronouns', big: true, items: [{ title: 'she/her', key: 'Love' }] }
 ] as const;
 
 export const PronounDescriptionsGruop: PronounsListComponentData[] = [
@@ -49,15 +42,15 @@ export const PronounDescriptionsGruop: PronounsListComponentData[] = [
     title: 'Generic',
     big: false,
     items: [
-      { title: 'person', key: 'Love' },
-      { title: 'man', key: 'Like' },
-      { title: 'women', key: 'Like' },
-      { title: 'boy', key: 'Like' },
-      { title: 'girl', key: 'Like' },
+      { title: 'person', key: 'Like' },
+      { title: 'man', key: 'No' },
+      { title: 'women', key: 'Love' },
+      { title: 'boy', key: 'No' },
+      { title: 'girl', key: 'Love' },
       { title: 'buddy', key: 'No' },
       { title: 'pal', key: 'Joke' },
-      { title: 'bro', key: 'Like' },
-      { title: 'sis', key: 'Like' }
+      { title: 'sis', key: 'Love' },
+      { title: 'bro', key: 'No' }
     ]
   },
   {
