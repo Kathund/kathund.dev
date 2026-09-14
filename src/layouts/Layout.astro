@@ -5,10 +5,12 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
+  header?: boolean;
   footer?: boolean;
 }
 
-let { title, footer } = Astro.props;
+let { title, header, footer } = Astro.props;
+if (header === undefined) header = true;
 if (footer === undefined) footer = true;
 const currentPath = Astro.url.pathname;
 ---
@@ -58,7 +60,7 @@ const currentPath = Astro.url.pathname;
 
   <body class="bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
     <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
-      <Header client:load currentPath={currentPath} />
+      {header && <Header client:load currentPath={currentPath} />}
 
       <slot />
 

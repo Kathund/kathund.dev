@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Link from '../components/Link.svelte';
+---
+
+<Layout title="404" header={false} footer={false}>
+  <div class="flex w-full justify-center ">
+    <div class="grid h-fit grid-cols-1">
+      <p class="text-4xl">404 <span class="text-ctp-red">not found</span>!</p>
+      <Link className="text-xl" href="/" text="I think we might be lost..." external={false} />
+      <Link href="/" text="Can we go home, please?" external={false} />
+    </div>
+  </div>
+</Layout>
