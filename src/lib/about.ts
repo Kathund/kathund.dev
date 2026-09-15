@@ -28,7 +28,14 @@ export interface PersonProps {
 export const CoolPeople: PersonProps[] = [
   { name: 'aidn5', links: [{ href: 'https://github.com/aidn3', text: 'Github' }] },
   { name: 'amy', links: [{ href: 'https://amy.rip', text: 'Site' }] },
-  { name: 'autumn', links: [{ href: 'https://itpuppy.pet', text: 'Site' }] },
+  {
+    name: 'autumn',
+    links: [
+      { href: 'https://github.com/it-pup', text: 'Github' },
+      { href: 'https://itpuppy.pet', text: 'Site' }
+    ],
+    note: 'fluffy paws 🐾'
+  },
   {
     name: 'AzureAaron',
     links: [

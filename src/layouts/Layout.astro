@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname;
   </head>
 
   <body class="bg-ctp-mantle text-ctp-text flex min-h-screen items-center justify-center">
-    <main class="my-32 max-w-8/10 min-w-4/10 font-mono">
+    <main class="my-10 max-w-9/10 min-w-4/10 font-mono md:my-16 lg:my-28 xl:my-32 xl:max-w-8/10">
       {header && <Header client:load currentPath={currentPath} />}
 
       <slot />
