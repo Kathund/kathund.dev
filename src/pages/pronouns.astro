@@ -13,20 +13,16 @@ import Link from '../components/Link.svelte';
   <div class="flex flex-col">
     <div class="grid h-fit grid-cols-1 p-2">
       <div class="flex flex-row justify-between">
-        {
-          GenericPronounGruop.map(({ title, items, big }, index) => (
-            <PronounsList client:load title={title} items={items} big={big} right={Boolean(index % 2)} />
-          ))
-        }
+        {GenericPronounGruop.map(({ title, items, big }, index) => (
+          <PronounsList client:load title={title} items={items} big={big} right={Boolean(index % 2)} />
+        ))}
       </div>
       <HorizontalSeparator />
       <p class="flex w-full justify-center text-3xl">Descriptions</p>
       <div class="flex flex-row justify-between">
-        {
-          PronounDescriptionsGruop.map(({ title, items, big }, index) => (
-            <PronounsList client:load title={title} items={items} big={big} right={Boolean(index % 2)} />
-          ))
-        }
+        {PronounDescriptionsGruop.map(({ title, items, big }, index) => (
+          <PronounsList client:load title={title} items={items} big={big} right={Boolean(index % 2)} />
+        ))}
       </div>
       <HorizontalSeparator />
     </div>
@@ -39,13 +35,11 @@ import Link from '../components/Link.svelte';
           href="https://en.pronouns.page/terminology?filter=pansexual"
         />
         <div class="flex max-w-7/10 flex-wrap justify-center">
-          {
-            Object.entries(PronounsLegend).map(([key, { style, title }]) => (
-              <div class="px-2">
-                <Pronoun client:load key={key} title={title} right={false} />
-              </div>
-            ))
-          }
+          {Object.entries(PronounsLegend).map(([key, { style, title }]) => (
+            <div class="px-2">
+              <Pronoun client:load key={key} title={title} right={false} />
+            </div>
+          ))}
         </div>
         <Button
           client:load

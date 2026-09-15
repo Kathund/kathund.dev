@@ -14,15 +14,19 @@ import Link from '../components/Link.svelte';
 <Layout title="About" footer={false}>
   <div class="flex flex-col gap-3">
     <div>
-      <p class="text-2xl">Silly dev that writes <span class="text-ctp-red">bad</span> code!</p>
-      <p>I primarily use <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim.</p>
-      <p>
-        I'm <Link href="/time" text="UTC+8" external={false} /> so expect responses between <ResponseTime
-          client:load
-        />! (<ResponseTime user={true} client:load /> in <span class="text-ctp-red">your</span> timezone)
+      <p class="text-2xl">
+        Silly dev that writes <span class="text-ctp-red">bad</span> code!
       </p>
       <p>
-        If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very distracted!
+        I primarily use <Link href="https://github.com/kathund/nix-config" text="NixOS" /> and NeoVim.
+      </p>
+      <p>
+        I'm <Link href="/time" text="UTC+8" external={false} /> so expect responses between <ResponseTime client:load />
+        ! (<ResponseTime user={true} client:load /> in <span class="text-ctp-red">your</span> timezone)
+      </p>
+      <p>
+        If I do not respond <span class="text-bold underline">PLEASE</span> send a follow up message as I get very
+        distracted!
       </p>
     </div>
 
@@ -35,11 +39,9 @@ import Link from '../components/Link.svelte';
 
     <div class="flex flex-col">
       <p class="text-xl">Random things I know how to use:</p>
-      {
-        ThingsIUse.sort((a, b) => a.text.localeCompare(b.text)).map(({ href, text }) => (
-          <Link href={href} text={`- ${text}`} />
-        ))
-      }
+      {ThingsIUse.sort((a, b) => a.text.localeCompare(b.text)).map(({ href, text }) => (
+        <Link href={href} text={`- ${text}`} />
+      ))}
     </div>
 
     <div class="flex flex-col">
@@ -61,26 +63,24 @@ import Link from '../components/Link.svelte';
         <p class="text-ctp-text/50 text-sm">If you ever looking for good devs please check them out</p>
       </div>
       <div class="flex flex-col gap-2">
-        {
-          CoolPeople.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())).map((person) => (
-            <Person client:load {...person} />
-          ))
-        }
+        {CoolPeople.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase())).map((person) => (
+          <Person client:load {...person} />
+        ))}
       </div>
     </div>
     <VerticalSeparator />
 
     <div>
       <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
-        {
-          PeopleButtons.sort((a, b) => a.alt.toLowerCase().localeCompare(b.alt.toLowerCase())).map((button) => (
-            <PersonButton client:load {...button} />
-          ))
-        }
+        {PeopleButtons.sort((a, b) => a.alt.toLowerCase().localeCompare(b.alt.toLowerCase())).map((button) => (
+          <PersonButton client:load {...button} />
+        ))}
       </div>
       <HorizontalSeparator />
       <div class="grid h-fit grid-cols-1 gap-0 p-2 lg:grid-cols-3">
-        {Buttons.map((button) => <Button client:load {...button} />)}
+        {Buttons.map((button) => (
+          <Button client:load {...button} />
+        ))}
       </div>
     </div>
   </div>

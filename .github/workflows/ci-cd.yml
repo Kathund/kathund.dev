@@ -1,11 +1,12 @@
 name: 'CI/CD'
+
 on:
   push:
-  workflow_dispatch:
   pull_request:
+  workflow_dispatch:
 
 env:
-  NODE_VERSION: '20'
+  NODE_VERSION: 'latest'
 
 jobs:
   pnpm:
@@ -13,19 +14,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v6
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
       - name: Install node dependencies
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
 
   prettier:
     name: check linting (prettier)
@@ -33,19 +34,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v6
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
       - name: Install node dependencies
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
 
       - name: Check prettier
         run: pnpm prettier:check
@@ -56,42 +57,42 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v6
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
       - name: Install node dependencies
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
 
       - name: Check eslint
         run: pnpm eslint:check
 
   build:
-    name: check building (build)
-    needs: [pnpm, eslint]
+    name: build
+    needs: [pnpm, prettier, eslint]
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v6
 
       - name: Use Node.js ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'pnpm'
 
       - name: Install node dependencies
-        run: pnpm i
+        run: pnpm install --frozen-lockfile
 
-      - name: Check build
+      - name: Check building
         run: pnpm build

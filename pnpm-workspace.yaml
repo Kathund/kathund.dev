@@ -1,5 +1,7 @@
-onlyBuiltDependencies:
-  - esbuild
-  - sharp
-  - unrs-resolver
-  - workerd
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - miniflare@5.20260911.1-alpha
+  - wrangler@4.131.2
