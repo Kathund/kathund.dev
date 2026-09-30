@@ -166,7 +166,9 @@ export const PeopleButtons: PersonButtonProps[] = [
   { alt: 'nea', href: 'https://nea.moe' },
   { alt: 'amy', href: 'https://amy.rip' },
   { alt: 'itpuppy', href: 'https://itpuppy.pet' },
-  { alt: 'meowona', href: 'https://mona.gay' }
+  { alt: 'meowora', href: 'https://mona.gay' },
+  { alt: 'jane', href: 'https://jane.pink' },
+  { alt: 'meowdding', href: 'https://meowdd.ing' }
 ];
 export const PeopleButtonsByAlt = new Map(PeopleButtons.map((person) => [person.alt, person]));
 
