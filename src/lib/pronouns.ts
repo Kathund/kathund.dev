@@ -30,7 +30,7 @@ export const GenericPronounGruop: PronounsListComponentData[] = [
     big: true,
     items: [
       { title: 'Amber', key: 'Love' },
-      { title: 'Kathund', key: 'Love' },
+      { title: 'Kathund', key: 'Like' },
       { title: 'Kath', key: 'No' }
     ]
   },
