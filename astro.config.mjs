@@ -1,13 +1,14 @@
 // @ts-check
 
 import svelte from '@astrojs/svelte';
+import cloudflare from '@astrojs/cloudflare';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-import cloudflare from '@astrojs/cloudflare';
-
 export default defineConfig({
   outDir: './build',
+  output: 'server',
+  adapter: cloudflare(),
   integrations: [svelte()],
   server: { host: true, allowedHosts: ['beta.kathund.dev', 'kathund.dev'], port: 44461 },
   vite: { plugins: [tailwindcss()] },
@@ -15,6 +16,5 @@ export default defineConfig({
     '/button/people/kath.png': '/button/people/Amber_dark.png',
     '/kathund-pgp-public.pgp': '/amber-pgp-public.pgp'
   },
-  site: 'https://kathund.dev',
-  adapter: cloudflare()
+  site: 'https://kathund.dev'
 });
