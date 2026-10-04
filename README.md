@@ -4,7 +4,7 @@ website lol
 
 # Contrib
 
-If you have questions, please contact me on discord. `@.kathund`
+If you have questions, please contact me on discord. `@amber.rip`
 
 ## Requirements for deving
 
